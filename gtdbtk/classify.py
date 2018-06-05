@@ -98,11 +98,11 @@ class Classify():
             pplacer_out_dir, 'pplacer.{}.out'.format(marker_set_id))
         pplacer_json_out = os.path.join(
             pplacer_out_dir, 'pplacer.{}.json'.format(marker_set_id))
-        cmd = 'pplacer -j {} -c {} -o {} {} > {}'.format(self.cpus,
-                                                         pplacer_ref_pkg,
-                                                         pplacer_json_out,
-                                                         user_msa_file,
-                                                         pplacer_out)
+        cmd = 'pplacer --mmap-file pplacer.scratch --groups 5 -j {} -c {} -o {} {} > {}'.format(self.cpus,
+                                                     pplacer_ref_pkg,
+                                                     pplacer_json_out,
+                                                     user_msa_file,
+                                                     pplacer_out)
         os.system(cmd)
 
         # extract tree
